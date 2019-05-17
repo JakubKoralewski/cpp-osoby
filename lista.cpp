@@ -15,6 +15,7 @@ int Lista::znajdz_index_osoby(std::string imie, std::string nazwisko) {
 
 void Lista::dodaj_osobe(Osoba os) {
     lista.push_back(os);
+    posortuj_liste();
 }
 
 void Lista::usun_osobe(std::string imie, std::string nazwisko) {
