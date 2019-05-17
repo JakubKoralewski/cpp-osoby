@@ -17,8 +17,12 @@ std::string Osoba::get_nazwisko() const { return nazwisko; };
 std::string Osoba::get_klasa() const { return klasa; };
 std::string Osoba::get_telefon() const { return telefon; };
 
+void Osoba::set_imie(std::string x) { imie = x; };
+void Osoba::set_nazwisko(std::string x) { nazwisko = x; };
+void Osoba::set_klasa(std::string x) { klasa = x; };
+void Osoba::set_telefon(std::string x) { telefon = x; };
+
 void Osoba::print() {
-    std::cout << "<Osoba Imie=\"" << imie << "\" Nazwisko=\"" << nazwisko;/*  
-        << "\" Telefon=\"" << telefon << "\" Klasa=\"" << klasa << "\" " 
-        << ">"; */
+    std::cout << "<Osoba Imie=\"" << imie << "\" Nazwisko=\"" << nazwisko 
+        << "\" Telefon=\"" << telefon << "\" Klasa=\"" << klasa << "\">";
 }

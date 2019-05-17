@@ -32,7 +32,8 @@
         "cmath": "cpp",
         "deque": "cpp",
         "numeric": "cpp",
-        "algorithm": "cpp"
+        "algorithm": "cpp",
+        "ctime": "cpp"
     },
     "C_Cpp.errorSquiggles": "Enabled"
 }

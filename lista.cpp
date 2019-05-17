@@ -4,8 +4,6 @@
 #include <iostream>
 
 #include "lista.h"
-#include "osoba.h"
-
 int Lista::znajdz_index_osoby(std::string imie, std::string nazwisko) {
     for(int i = 0; i != lista.size(); i++) {
         Osoba os = lista[i];
@@ -40,26 +38,54 @@ void Lista::wypisz_liste() {
     }
 }
 
-Osoba Lista::znajdz_osobe(std::string imie, std::string nazwisko) {
+bool Lista::czy_osoba_istnieje(std::string imie, std::string nazwisko) {
     for(std::vector<Osoba>::size_type i = 0; i != lista.size(); i++) {
         Osoba os = lista[i];
         if (os.get_imie() == imie && os.get_nazwisko() == nazwisko) {
-            return os;
+            ostatnio_znaleziony_index = i;
+            return true;
         }
     }
+    return false;
 }
 
 
 void Lista::wypisz_osoby() {
-    for(Osoba& os : lista) {
+    std::size_t lista_size = lista.size();
+    for(std::size_t i=0; i<lista_size; i++) {
+        Osoba os = lista[i];
+        bool is_last = i == lista_size - 1;
         os.print();
-        std::cout << ",";
+        std::cout << (!is_last ? ",\n" : "\n");
     }
 }
 
+Osoba Lista::set_prop_on_last(std::string property, std::string wartosc) {
+    Osoba* os = &lista[ostatnio_znaleziony_index];
+
+    if (property == "imię" || property == "imie") {
+        os->set_imie(wartosc);
+    } else if (property == "nazwisko") {
+        os->set_nazwisko(wartosc);
+    } else if (property == "klasa") {
+        os->set_klasa(wartosc);
+    } else if (property == "telefon") {
+        os->set_telefon(wartosc);
+    }
+
+    return *os;
+}
+
 void Lista::wypisz_osobe(std::string imie, std::string nazwisko) {
-    Osoba osoba = znajdz_osobe(imie, nazwisko);
-    osoba.print();
+    if(czy_osoba_istnieje(imie, nazwisko)) {
+        ostatnio_znaleziona().print();
+    } else {
+        std::cout << "Nie znaleziono takiej osoby!"<<std::endl;
+    }
+}
+
+Osoba Lista::ostatnio_znaleziona() {
+    return lista[ostatnio_znaleziony_index];
 }
 
 void Lista::wyczysc_liste() {

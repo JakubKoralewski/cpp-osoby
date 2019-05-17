@@ -15,6 +15,11 @@ public:
     std::string get_klasa() const;
     std::string get_telefon() const;
 
+    void set_imie(std::string x);
+    void set_nazwisko(std::string x);
+    void set_klasa(std::string x);
+    void set_telefon(std::string x);
+
     void print();
 };
 
