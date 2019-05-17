@@ -1,0 +1,41 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "build main",
+            "type": "shell",
+            "command": "g++",
+            "args": [
+                "-g",
+                "-o",
+                "-std=c++11",
+                "-I.",
+                "main.cpp",
+                "lista.cpp",
+                "osoba.cpp"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
+        },
+        {
+            "type": "shell",
+            "label": "g++.exe build active file",
+            "command": "F:\\PROGRAMY\\mingw\\bin\\g++.exe",
+            "args": [
+                "-g",
+                "-std=c++11",
+                "-I.",
+                "${fileDirname}\\main.cpp",
+                "${fileDirname}\\osoba.cpp",
+                "${fileDirname}\\lista.cpp",
+                "-o",
+                "${fileDirname}\\main"
+            ],
+            "options": {
+                "cwd": "F:\\PROGRAMY\\mingw\\bin"
+            }
+        }
+    ]
+}
